@@ -22,9 +22,10 @@ bool isActive = false;
 
 void loop() {
   int senzor = digitalRead(pirSenzor); // citanje sa senora (0 ili 1)
+  Serial.println(senzor);
   if(senzor){
     digitalWrite(crvena, HIGH);
-    tone(buzzer, 1000);
+    tone(buzzer, 2000);
     delay(1000);
     noTone(buzzer);
   }

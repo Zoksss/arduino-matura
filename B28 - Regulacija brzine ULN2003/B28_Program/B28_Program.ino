@@ -10,10 +10,9 @@ int button = 3;
 // [ Pomocne promenljive ]
 bool debounce = false;
 bool isMotorRunning = false; 
-int stepsPerRevolution = 200;
 
  
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+Stepper myStepper(64, 8, 9, 10, 11);
  
 void button_change(){   // funkcija za interupt dugmeta
   if(!digitalRead(button) && !debounce) { 
@@ -36,7 +35,7 @@ void loop() {
     int reading = analogRead(A0);
     int readingMap = map(reading, 0, 1024, 20, 100); // pretvaranje analog reda u vrednosti od 20 - 100
     Serial.println(String(readingMap) + "%");        // ispisivanje brzine u procentima
-    myStepper.step(stepsPerRevolution);
+    myStepper.step(1);
     myStepper.setSpeed(readingMap);
   } 
   else {

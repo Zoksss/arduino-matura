@@ -28,13 +28,11 @@ void loop() {
     ukljucenPuta++;
     digitalWrite(crvena, HIGH);
     tone(buzzer, 1000); // upalice zvucnik sa frekvencijom od 1000Hz
-    lcd.clear();
-    lcd.print("UPOZORENJE   " + String(ukljucenPuta));
+    Serial.println("UPOZORENJE   " + String(ukljucenPuta));
   }
   else if(!senzor && isActive){
     digitalWrite(crvena, LOW);
     noTone(buzzer); // upalice zvucnik sa frekvencijom od 1000Hz
-    lcd.clear();
     isActive = false;
     Serial.println("Bezbedno");
   }

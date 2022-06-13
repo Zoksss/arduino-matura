@@ -27,8 +27,8 @@ void setup() {
 void loop() {
   if(isMotorRunning){
     int reading = analogRead(A0);
-    Serial.println(map(reading, 0, 1024, 20, 100));
-    int stepDelay = map(reading, 0, 1023, 1, 10);
+    Serial.println(map(reading, 0, 950, 20, 100));
+    int stepDelay = map(reading, 0, 950, 10, 1);
     digitalWrite(STEP_Pin, HIGH);
     delay(stepDelay);
     digitalWrite(STEP_Pin, LOW);

@@ -11,7 +11,8 @@ void setup(){
 
 void loop(){
   komanda = Serial.readString(); // citanje sa serial monitora 
-  if(komanda == "#TEST"){
+  if(komanda.startsWith("#TEST")){
+    Serial.println("WORKS");
     digitalWrite(crvena, HIGH);
     digitalWrite(zelena, HIGH);
     delay(1000);

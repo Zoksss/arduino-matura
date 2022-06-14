@@ -19,7 +19,21 @@ void setup() {
 }
 
 void loop() {
-  if(!digitalRead(button)) myStepper.step(1);
-  else Serial.println(String(analogRead(0) * (5.0 / 1023.0)) + "V");
-  
+  int senzor=map(analogRead(A0),0,1024,180,215);
+  Serial.println(senzor);
+  if(!digitalRead(button) && !debounce) {
+    debounce=true;
+  if(senzor>= 196 && senzor<=204){
+    Serial.println("ISPRAVAN");
+  myStepper.step(100);
+  delay(1000);
+  myStepper.step(-100);
+  } else {
+    Serial.println("NEISPRAVAN");
+  myStepper.step(-100);
+  delay(1000);
+  myStepper.step(100);
+    }
+  } 
+  else if (digitalRead(button) && debounce) debounce=false;
 }

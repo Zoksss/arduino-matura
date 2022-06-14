@@ -33,5 +33,5 @@ void loop() {
     digitalWrite(STEP_Pin, LOW);
     delay(2);
   }
-  Serial.println(String(analogRead(0) * (5.0 / 1023.0)) + "V");
+  Serial.println(String(analogRead(A0) * (5.0 / 1023.0)) + "V");
 }
